@@ -5,7 +5,8 @@ module.exports = (sequelize , Sequelize) => {
     const Student = sequelize.define("student",{
 
         email:{
-            type:DataTypes.STRING
+            type:DataTypes.STRING,
+            unique:true // no two users should have same email id.
         },
         password:{
             type:DataTypes.STRING
@@ -24,3 +25,5 @@ module.exports = (sequelize , Sequelize) => {
 
     return Student;
 }
+
+// this was big problem. Migration files.
