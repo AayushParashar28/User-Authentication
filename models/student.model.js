@@ -10,10 +10,15 @@ module.exports = (sequelize , Sequelize) => {
         password:{
             type:DataTypes.STRING
         },
-        name:{
+        firstname:{
+            type:DataTypes.STRING
+        },
+        lastname:{
+            type:DataTypes.STRING
+        },
+        gender:{
             type:DataTypes.STRING
         }
-
 
     })
 
