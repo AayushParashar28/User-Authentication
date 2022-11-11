@@ -11,7 +11,6 @@ const sequelize = new Sequelize(config.database, config.username, config.passwor
     operatorsAliases:0
 })
 
-
 const db = {};
 
 db.Sequelize = Sequelize;
