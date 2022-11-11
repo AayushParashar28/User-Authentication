@@ -6,7 +6,11 @@ module.exports = (sequelize , Sequelize) => {
 
         email:{
             type:DataTypes.STRING,
+<<<<<<< HEAD
             unique:true 
+=======
+            unique:true // no two users should have same email id.
+>>>>>>> e34880496dd83ce55a0376ee2483f058d45a9d40
         },
         password:{
             type:DataTypes.STRING
@@ -25,8 +29,13 @@ module.exports = (sequelize , Sequelize) => {
 
     return Student;
 }
+<<<<<<< HEAD
 //admin user -- power - kissi bhi student detail ko change kr skta hai
 // callback 
 // promises
 //async
 // prototypes
+=======
+
+// this was big problem. Migration files.
+>>>>>>> e34880496dd83ce55a0376ee2483f058d45a9d40

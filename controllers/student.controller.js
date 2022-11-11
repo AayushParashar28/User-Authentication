@@ -63,6 +63,7 @@ exports.getAllStudent = async(req,res) =>{
 }
 
 exports.signin = async (req, res) => {
+<<<<<<< HEAD
     try{
         const checkemail = await db.student.findOne({
             where : {
@@ -87,10 +88,41 @@ exports.signin = async (req, res) => {
          }
     } catch (error) {
         console.log(error);
+=======
+    try {
+
+        // /**
+        //  1. check email present in db or no. if present then only check for password.
+
+        //  */
+        const result = await db.student.findAll({
+
+                    where: { 
+                        email:req.body.email,
+                        password:req.body.password
+                    }
+
+                });
+
+        
+                // check if result[] length == 1 then login status = success/
+        return res.status(201).json({
+
+          "result":"you have been successfully logged in"
+
+        })
+
+
+    } catch (error) {
+
+>>>>>>> e34880496dd83ce55a0376ee2483f058d45a9d40
         return res.status(500).json({
             "msg":"internal server error"
         }) 
+
     }
+
+    
 }
 
 exports.totalentry = async (req , res) =>{
