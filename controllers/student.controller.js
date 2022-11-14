@@ -63,7 +63,6 @@ exports.getAllStudent = async(req,res) =>{
 }
 
 exports.signin = async (req, res) => {
-<<<<<<< HEAD
     try{
         const checkemail = await db.student.findOne({
             where : {
@@ -88,34 +87,6 @@ exports.signin = async (req, res) => {
          }
     } catch (error) {
         console.log(error);
-=======
-    try {
-
-        // /**
-        //  1. check email present in db or no. if present then only check for password.
-
-        //  */
-        const result = await db.student.findAll({
-
-                    where: { 
-                        email:req.body.email,
-                        password:req.body.password
-                    }
-
-                });
-
-        
-                // check if result[] length == 1 then login status = success/
-        return res.status(201).json({
-
-          "result":"you have been successfully logged in"
-
-        })
-
-
-    } catch (error) {
-
->>>>>>> e34880496dd83ce55a0376ee2483f058d45a9d40
         return res.status(500).json({
             "msg":"internal server error"
         }) 
@@ -125,55 +96,33 @@ exports.signin = async (req, res) => {
     
 }
 
-exports.totalentry = async (req , res) =>{
-    try {
-        const getlist = await db.student.findAll();
-        const listcount = await db.student.count();
-
-        return res.status(200).json({
-            "Entries":getlist,
-            "total_no_of_entry":listcount
-        })
-        
-    } catch (error) {
-        console.log(error);
-        return res.status(500).json({
-            "msg":"You are not Admin"
-        }) 
-    }
-}
-
-
 exports.updateStudentbyAdmin = async (req , res) =>{
     console.log(req.params.id);      
         try {
-            const Student = await db.student.update({
-                where : { 
-                           id : req.params.id 
-                        },
-                     
-                    email : req.body.email,
-                    password:req.body.password,
-                    firstname:req.body.firstname,
-                    lastname:req.body.lastname,
-                    gender:req.body.gender
-                })
-                                 
+            
+            const Student = await db.student.update(req.body,{
+                where:{id:req.params.id} 
+            })              
             console.log(Student);
             res.status(200).json({
-                "result":Student
+                "result": "User Updated"
             })
         } catch(error) {
             console.log(error);
             res.status(500).json({
-                    "msg":"Internal server error"
+                    "msg":"User not accepted"
             })
         }
 }
 
-exports.deleteById = async (request, response) => {
+exports.deleteById = async (req, res) => {
          try {
-            
+            const Student = await db.student.destroy({
+                where:{id:req.params.id},
+            }) 
+            res.status(200).json({
+                "msg":"Student Deleted"
+            })
          } catch (error) {
             console.log(error);
             res.status(500).json({

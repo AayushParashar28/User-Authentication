@@ -11,10 +11,8 @@ studentRouter.get("/student/getAllStudent", studentController.getAllStudent)
 
 studentRouter.post("/student/signin", studentController.signin)
 
-studentRouter.get("/admin/getList", studentController.totalentry)
+studentRouter.put("/admin/updatestudent/:id",studentController.updateStudentbyAdmin)
 
-studentRouter.post("/admin/updatestudent",studentController.updateStudentbyAdmin)
-
-//studentRouter.delete("/deleteById/:id",studentController.deleteById)
+studentRouter.delete("/admin/deleteById/:id",studentController.deleteById)
 
 module.exports = studentRouter;
