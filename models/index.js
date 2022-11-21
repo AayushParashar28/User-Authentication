@@ -18,6 +18,7 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 db.student = require("./student.model")(sequelize,Sequelize);
+db.student = require("./studentpost.model")(sequelize,Sequelize);
 
 
 module.exports = db;

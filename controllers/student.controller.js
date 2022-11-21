@@ -1,4 +1,3 @@
-const { student } = require("../models/index.js");
 const db = require("../models/index.js");
 
 exports.test = async (req,res)=>{
@@ -131,3 +130,8 @@ exports.deleteById = async (req, res) => {
          }    
     
 }    
+
+
+
+// Student can post their Activity 
+// Student post like or dislike features
