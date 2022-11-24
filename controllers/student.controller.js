@@ -131,7 +131,3 @@ exports.deleteById = async (req, res) => {
     
 }    
 
-
-
-// Student can post their Activity 
-// Student post like or dislike features
