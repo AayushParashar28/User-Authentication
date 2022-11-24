@@ -34,8 +34,11 @@ let song = downloaadSong("excuses", function x(song) {
 
 function songfile(songfile, callback) {
 
+    setTimeout(function fun() {
+
         console.log("File Started .....");
 
+    }, 4000);
 
     setTimeout(function fun() {
 
@@ -49,7 +52,11 @@ function songfile(songfile, callback) {
 
 function drivelink(songdrive, callback) {
 
+    setTimeout(function fun() {
+
         console.log("Drive Started .....");
+
+    }, 6000);
 
     setTimeout(function fun() {
 
