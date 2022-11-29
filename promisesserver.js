@@ -1,4 +1,4 @@
-function downloadSong() {
+function downloadSong(song) {
 
     console.log("Downloading started .....");
 
@@ -6,60 +6,64 @@ function downloadSong() {
         
         setTimeout(function fun() {
 
-            resolve("excuses");
+            song = song + ".mp3"
+            resolve(song);
 
         }, 1000);
     })
 }
 
-function writeSong() {
+function writeSong(songName) {
 
-    console.log("File Started");
+    console.log("File Started ......");
 
-    // return new Promise(function callback(resolve, reject) {
+    return new Promise(function callback(resolve, reject) {
         
-    //     setTimeout(function fun1() {
+        setTimeout(function fun1() {
 
-    //         resolve("excuses");
+            songName = songName + ".txt";
+            resolve(songName);
 
-    //     }, 1000);
-    // })
+        }, 1000);
+    })
 }
 
 
-function drivelinkSong() {
+function drivelinkSong(fileName) {
 
-    console.log("Drive Started ");
+    console.log("Drive Started ........");
 
-    // return new Promise(function callback(resolve, reject) {
+    return new Promise(function callback(resolve, reject) {
         
-    //     setTimeout(function fun() {
+        setTimeout(function fun() {
 
-    //         resolve(value);
+            fileName = "www.drive.google.com/"+fileName;
+            resolve(fileName);
 
-    //     }, 1000);
-    // })
+        }, 1000);
+    })
 }
 
-let value = downloadSong();
+let value = downloadSong("excuses");
 
 value.then(function fun1(v) {
 
-    console.log("Downloaded Song  = ",v +".mp3");
+    console.log("Downloaded Song  => ",v);
     console.log("Song Download Completed");
 
-    let v1 = writeSong();
-    return v + ".mp3"
+    let v1 = writeSong(v);
+    return v1;
 }).then(function fun2(v1){
     
-    console.log("File name : " + v1 + ".txt");
-    console.log("File Ends");
-    let v2 = drivelinkSong();
-    return v1 + ".txt" ;
+    console.log("File name => ", v1);
+    console.log("File Writing completed");
+
+    let v2 = drivelinkSong(v1);
+    return v2
 
  }).then(function fun3(v2){
 
-    console.log("Drive link is = www.drive.google.com/", v2);
-    console.log("Drive Ends");
+    console.log("Drive link => ", v2);
+    console.log("Drive Uploading completed");
 
 })
