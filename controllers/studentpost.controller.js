@@ -17,8 +17,10 @@ exports.test = async (req, res) => {
 exports.upload = async (req, res) => {
     try {
         const uploadpost = {
+            studentId: req.body.Studentpost,
             post: req.body.post
         }
+        console.log(uploadpost);
         const Studentpost = await db.student.create(uploadpost);
         res.status(200).json({
             "post": Studentpost

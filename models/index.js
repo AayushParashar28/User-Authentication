@@ -18,7 +18,12 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 db.student = require("./student.model")(sequelize,Sequelize);
-db.student = require("./studentpost.model")(sequelize,Sequelize);
+db.studentpost = require("./studentpost.model")(sequelize,Sequelize);
+
+db.student.hasOne(db.studentpost,{
+    foreignKey:"StudentId",
+    as:"studentpost"
+});
 
 
 module.exports = db;
